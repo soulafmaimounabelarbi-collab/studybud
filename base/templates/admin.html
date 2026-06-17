@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Admin Dashboard</h1>
+{% for teacher in pending_teachers %}
+<p>{{ teacher.user.username }}
+    <a href="{% url 'approve-teacher' teacher.user.id %}">Approve</a>
+</p>
+{% empty %}
+<p>No pending requests</p>
+{% endfor %}
+
+
+{% endblock content %}
